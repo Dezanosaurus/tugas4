@@ -271,43 +271,120 @@ nav {
 /* 3 */
 
 .video-section {
-    min-height: 100vh; padding: 80px 8%; display: flex; flex-direction: column; justify-content: space-around;
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600') no-repeat center/cover;
+    height: 100vh;
+    width: 100%;
+    padding: 0 8%;
+    display: flex;
+    align-items: center; /* Teks di tengah secara vertikal */
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), 
+                url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600') no-repeat center/cover;
+    overflow: hidden;
 }
 
-.video-content h2 {
-    font-size: 4rem; font-weight: 900; line-height: 1.1;
+/* Bagian Teks di Kiri */
+.video-content {
+    z-index: 2;
+    text-align: left;
 }
 
-.video-play {
-    display: flex; align-items: center; gap: 15px; margin: 30px 0; cursor: pointer;
+.video-content h1 {
+    font-size: 5.5rem; /* Ukuran besar sesuai gambar */
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.video-play-trigger {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 30px 0;
+    font-size: 14px;
 }
 
 .play-circle {
-    width: 50px; height: 50px; border: 1px solid #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.video-desc {
-    max-width: 300px; font-size: 12px; color: #ccc; border-top: 1px solid #fff; padding-top: 15px;
+.video-desc-box {
+    max-width: 400px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 20px;
+    font-size: 13px;
+    color: #ccc;
+    line-height: 1.6;
 }
 
+/* Bagian Thumbnail di Kanan Bawah */
 .video-previews {
-    display: flex; gap: 20px; justify-content: flex-end;
+    position: absolute; /* Melayang bebas */
+    bottom: 50px;       /* Jarak dari bawah */
+    right: 8%;          /* Jarak dari kanan */
+    display: flex;
+    gap: 20px;
+    z-index: 3;
 }
 
 .mini-vid {
-    width: 220px; height: 130px; border-radius: 4px; display: flex; align-items: center; justify-content: center; background-size: cover;
+    width: 250px;
+    height: 140px;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    background: #222;
 }
 
-.thumb-1 {
-    background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=300');
+.mini-vid video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Video memenuhi kotak rapi */
 }
 
-.thumb-2 {
-    background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=300');
+.play-s {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35px;
+    height: 35px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+}
+
+/* Membuat kursor berubah jadi tangan saat di atas tombol */
+.video-play-trigger, 
+.mini-vid, 
+.col a {
+    cursor: pointer;
+}
+
+/* Efek sedikit membesar saat disentuh mouse */
+.mini-vid:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Efek pada tombol play utama */
+.video-play-trigger:hover .play-circle {
+    background-color: #fff;
+    color: #000;
 }
 
 /* Footer */
+
 .main-footer {
     background-color: #000;
     padding: 80px 8% 40px;

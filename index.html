@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visit Tokyo - Travel</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-tambahan.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -13,8 +14,6 @@
 
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
-
-    <link rel="stylesheet" href="style-tambahan.css">
 
 <!-- Pre-Loader -->
 
@@ -25,12 +24,16 @@
         </div>
     </div>
 
-    <link rel="stylesheet" href="style-tambahan.css">
-
 <!-- 1 -->
     <header>
         <nav>
             <div class="logo"><span>●</span> TRAVEL</div>
+            
+            <input type="checkbox" id="nav-check">
+            <label for="nav-check" class="nav-toggler">
+                <span></span>
+            </label>
+
             <ul class="nav-links">
                 <li><a href="#">ГЛАВНАЯ</a></li>
                 <li><a href="#">О НАС</a></li>
@@ -75,6 +78,7 @@
     </main>
 
 <!-- 2 -->
+ 
 <section class="tours-section">
     <div class="container">
         <div class="tours-header">
@@ -126,18 +130,35 @@
 <!-- 3 -->
 
 <section class="video-section">
-        <div class="video-content">
-            <h2>TRAVEL AND <br> INSPIRE YOUR <br> LIFE</h2>
-            <div class="video-play">
-                <div class="play-circle">▶</div>
-                <span>Смотреть видео</span>
-            </div>
-            <p class="video-desc">Здесь будет текст-описание untuk video yang sangat menarik.</p>
+    <div class="video-content">
+        <h1>TRAVEL AND <br> INSPIRE YOUR <br> LIFE</h1>
+        
+    <a href="Video/Tokyo2.mp4" target="_blank" style="text-decoration: none; color: inherit;">
+        <div class="video-play-trigger">
+        <div class="play-circle">▶</div>
+        <span>Смотреть видео</span>
         </div>
-        <div class="video-previews">
-            <div class="mini-vid thumb-1">▶</div>
-            <div class="mini-vid thumb-2">▶</div>
+    </a>
+
+        <div class="video-desc-box">
+            <p>Здесь будет текст-описание для видео, которое вам предоставлено для запуска и которое очень интересное.</p>
         </div>
+    </div>
+
+    <div class="video-previews">
+        <div class="mini-vid">
+            <video autoplay muted loop playsinline>
+                <source src="Video/Sakura.mp4" type="video/mp4">
+            </video>
+            <div class="play-s">▶</div>
+        </div>
+        <div class="mini-vid">
+            <video autoplay muted loop playsinline>
+                <source src="Video/Tokyo.mp4" type="video/mp4">
+            </video>
+            <div class="play-s">▶</div>
+        </div>
+    </div>
 </section>
 
 <!-- Footer -->
@@ -149,14 +170,14 @@
             </div>
             
             <ul class="footer-links">
-                <li><a href="#">INSTAGRAM</a></li>
+                <li><a href="#https://www.instagram.com/devdannarendrata?igsh=MXJjOHFncmEyZHVkdQ==">INSTAGRAM</a></li>
                 <li><a href="#">FACEBOOK</a></li>
-                <li><a href="#">TWITTER</a></li>
-                <li><a href="#">YOUTUBE</a></li>
+                <li><a href="#https://www.tiktok.com/@dezdangg?_r=1&_t=ZS-95aTwEuk9ZQ">TIKTOK</a></li>
+                <li><a href="#https://youtube.com/@madidan?si=7TP17v-J7V3IzWUP">YOUTUBE</a></li>
             </ul>
 
             <div class="footer-info">
-                <p>&copy; 2026 Tokyo Travel Experience. All Rights Reserved.</p>
+                <p>&copy; 2026 Dezanosaurus Experience. All Rights Reserved.</p>
             </div>
         </div>
 </footer>
@@ -191,6 +212,31 @@
             top: `${posY}px`
         }, { duration: 500, fill: "forwards" });
     });
+</script>
+
+<!-- Video -->
+
+<script>
+    // Mengambil elemen tombol play
+const playBtn = document.querySelector('.video-play-trigger');
+
+playBtn.addEventListener('click', () => {
+    alert('Video utama akan diputar!'); 
+    // Di sini kamu bisa ganti dengan kode untuk membuka YouTube 
+    // atau mengganti src video utama.
+});
+
+// Mengambil semua thumbnail video
+const thumbs = document.querySelectorAll('.mini-vid');
+
+thumbs.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => {
+        console.log(`Thumbnail ${index + 1} diklik`);
+        // Efek visual saat diklik
+        thumb.style.transform = "scale(0.95)";
+        setTimeout(() => thumb.style.transform = "scale(1)", 100);
+    });
+});
 </script>
 
 </body>
